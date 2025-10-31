@@ -4,7 +4,7 @@ const backendURL = "http://localhost:5000";
 
 // ---------- Product Data (kept exactly as you provided) ----------
 const products = [
-  { id: 'apples', name: 'Apples', price: 100, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/blob/ddd680550c678efa28ea1ef017e67ff489cfab43/image/apples.jpg', desc: 'Fresh, crisp, and sweet apples.' },
+  { id: 'apples', name: 'Apples', price: 100, unit: 'per kg', img: 'https://raw.githubusercontent.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/main/image/apples.jpg', desc: 'Fresh, crisp, and sweet apples.' },
   { id: 'bananas', name: 'Bananas', price: 50, unit: 'per dozen', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/raw/main/image/bananas.jpg', desc: 'Ripe and sweet bananas.' },
   { id: 'oranges', name: 'Oranges', price: 50, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/raw/main/image/oranges.jpg', desc: 'Juicy and tangy oranges.' },
   { id: 'grapes', name: 'Grapes', price: 80, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/raw/main/image/grapes.jpg', desc: 'Sweet seedless green grapes.' },
@@ -380,6 +380,7 @@ renderProducts();
 renderJuices(); 
 renderVegetables(); 
 updateCartUI();
+
 
 
 
