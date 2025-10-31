@@ -4,29 +4,29 @@ const backendURL = "http://localhost:5000";
 
 // ---------- Product Data (kept exactly as you provided) ----------
 const products = [
-  { id: 'apples', name: 'Apples', price: 100, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/apples.jpg', desc: 'Fresh, crisp, and sweet apples.' },
+  { id: 'apples', name: 'Apples', price: 100, unit: 'per kg', img: 'image//apples.jpg', desc: 'Fresh, crisp, and sweet apples.' },
   { id: 'bananas', name: 'Bananas', price: 50, unit: 'per dozen', img: '/bananas.jpg', desc: 'Ripe and sweet bananas.' },
-  { id: 'oranges', name: 'Oranges', price: 50, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/oranges.jpg', desc: 'Juicy and tangy oranges.' },
-  { id: 'grapes', name: 'Grapes', price: 80, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/grapes.jpg', desc: 'Sweet seedless green grapes.' },
-  { id: 'mangoes', name: 'Mangoes', price: 100, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/mango.jpg', desc: 'Delicious tropical mangoes.' },
-  { id: 'pineapple', name: 'Pineapple', price: 60, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/pineapple.jpg', desc: 'Juicy tropical pineapple.' },
-  { id: 'strawberries', name: 'Strawberries', price: 200, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/strawberries.jpg', desc: 'Fresh, sweet strawberries.' },
-  { id: 'watermelon', name: 'Watermelon', price: 40, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/watermelon.jpg', desc: 'Refreshing and juicy watermelon.' },
-  { id: 'papaya', name: 'Papaya', price: 50, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/papaya.jpg', desc: 'Sweet and soft papaya.' }
+  { id: 'oranges', name: 'Oranges', price: 50, unit: 'per kg', img: 'image//oranges.jpg', desc: 'Juicy and tangy oranges.' },
+  { id: 'grapes', name: 'Grapes', price: 80, unit: 'per kg', img: 'image//grapes.jpg', desc: 'Sweet seedless green grapes.' },
+  { id: 'mangoes', name: 'Mangoes', price: 100, unit: 'per kg', img: 'image//mango.jpg', desc: 'Delicious tropical mangoes.' },
+  { id: 'pineapple', name: 'Pineapple', price: 60, unit: 'per kg', img: 'image//pineapple.jpg', desc: 'Juicy tropical pineapple.' },
+  { id: 'strawberries', name: 'Strawberries', price: 200, unit: 'per kg', img: 'image//strawberries.jpg', desc: 'Fresh, sweet strawberries.' },
+  { id: 'watermelon', name: 'Watermelon', price: 40, unit: 'per kg', img: 'image//watermelon.jpg', desc: 'Refreshing and juicy watermelon.' },
+  { id: 'papaya', name: 'Papaya', price: 50, unit: 'per kg', img: 'image//papaya.jpg', desc: 'Sweet and soft papaya.' }
 ];
 const vegetables = [
-  { id: 'tomato', name: 'Tomatoes', price: 40, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/tomato.jpg', desc: 'Fresh and juicy red tomatoes.' },
-  { id: 'potato', name: 'Potatoes', price: 30, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/potato.png', desc: 'Farm-fresh and starchy potatoes.' },
-  { id: 'carrot', name: 'Carrots', price: 50, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/carrrot.png', desc: 'Crunchy and sweet carrots.' },
-  { id: 'onion', name: 'Onions', price: 35, unit: 'per kg', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/onion.png', desc: 'Freshly harvested onions.' },
-  { id: 'spinach', name: 'Spinach', price: 25, unit: 'per bunch', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/spinach.png', desc: 'Green, fresh, and rich in nutrients.' },
-  { id: 'cauliflower', name: 'Cauliflower', price: 60, unit: 'per piece', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/cauliflower.png', desc: 'Crisp and fresh cauliflower.' }
+  { id: 'tomato', name: 'Tomatoes', price: 40, unit: 'per kg', img: 'image//tomato.jpg', desc: 'Fresh and juicy red tomatoes.' },
+  { id: 'potato', name: 'Potatoes', price: 30, unit: 'per kg', img: 'image//potato.png', desc: 'Farm-fresh and starchy potatoes.' },
+  { id: 'carrot', name: 'Carrots', price: 50, unit: 'per kg', img: 'image//carrrot.png', desc: 'Crunchy and sweet carrots.' },
+  { id: 'onion', name: 'Onions', price: 35, unit: 'per kg', img: 'image//onion.png', desc: 'Freshly harvested onions.' },
+  { id: 'spinach', name: 'Spinach', price: 25, unit: 'per bunch', img: 'image//spinach.png', desc: 'Green, fresh, and rich in nutrients.' },
+  { id: 'cauliflower', name: 'Cauliflower', price: 60, unit: 'per piece', img: 'image//cauliflower.png', desc: 'Crisp and fresh cauliflower.' }
 ];
 const juices = [
-  { id: 'mango-juice', name: 'Mango Juice', price: 20, unit: 'per glass', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/mango.jpg', desc: 'Fresh mango juice.' },
-  { id: 'orange-juice', name: 'Orange Juice', price: 15, unit: 'per glass', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/oranges.jpg', desc: 'Fresh orange juice.' },
-  { id: 'pineapple-juice', name: 'Pineapple Juice', price: 25, unit: 'per glass', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/pineapple.jpg', desc: 'Fresh pineapple juice.' },
-  { id: 'watermelon-juice', name: 'Watermelon Juice', price: 20, unit: 'per glass', img: 'https://github.com/guptadeepak155/Ramji-Fruit-Veggie-Shop/watermelon.jpg', desc: 'Refreshing watermelon juice.' }
+  { id: 'mango-juice', name: 'Mango Juice', price: 20, unit: 'per glass', img: 'image//mango.jpg', desc: 'Fresh mango juice.' },
+  { id: 'orange-juice', name: 'Orange Juice', price: 15, unit: 'per glass', img: 'image//oranges.jpg', desc: 'Fresh orange juice.' },
+  { id: 'pineapple-juice', name: 'Pineapple Juice', price: 25, unit: 'per glass', img: 'image//pineapple.jpg', desc: 'Fresh pineapple juice.' },
+  { id: 'watermelon-juice', name: 'Watermelon Juice', price: 20, unit: 'per glass', img: 'image//watermelon.jpg', desc: 'Refreshing watermelon juice.' }
 ];
 
 // ---------- State ----------
@@ -380,5 +380,6 @@ renderProducts();
 renderJuices(); 
 renderVegetables(); 
 updateCartUI();
+
 
 
