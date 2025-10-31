@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Ramji Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #00bfa5, #1de9b6, #a7ffeb);
+      background-attachment: fixed;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+      letter-spacing: 1px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+      gap: 10px;
+    }
+
+    .tabs button {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: none;
+      padding: 10px 25px;
+      cursor: pointer;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .tabs button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .tabs button.active {
+      background: #fff;
+      color: #00bfa5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      text-align: left;
+    }
+
+    th {
+      background: rgba(0,191,165,0.9);
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    tr:hover {
+      background: rgba(0,0,0,0.05);
+    }
+    .login-btn {
+      position: fixed;
+      top: 15px;
+      right: 95px;
+      background: #ff5252;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .login-btn:hover {
+      background: #e53935;
+      transform: scale(1.05);
+    }
+
+    .logout-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #ff5252;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .logout-btn:hover {
+      background: #e53935;
+      transform: scale(1.05);
+    }
+  </style>
+
+  <script>
+    const ADMIN_KEY = "ramji123"; // change this to your custom key
+
+    if (!sessionStorage.getItem("isAdminAuthenticated")) {
+      const enteredKey = prompt("Enter Admin Password:");
+      if (enteredKey === ADMIN_KEY) {
+        sessionStorage.setItem("isAdminAuthenticated", "true");
+        alert("Welcome, Admin!");
+      } else {
+        alert("Access denied!");
+        window.location.href = "admin.html"; // redirect to main site
+      }
+    }
+  </script>
+</head>
+<body>
+  <button class="login-btn" onclick="logincust()">Customer-Login</button>
+  <button class="logout-btn" onclick="logoutAdmin()">Logout</button>
+  <h1>Admin Dashboard</h1>
+  <div class="tabs">
+    <button id="ordersTab" class="active" onclick="showTab('orders')">Orders</button>
+    <button id="messagesTab" onclick="showTab('messages')">Messages</button>
+  </div>
+
+  <div id="ordersSection">
+    <table id="ordersTable">
+      <thead>
+        <tr>
+          <th>Sr.no</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Slot</th>
+          <th>Items</th>
+          <th>Total</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div id="messagesSection" style="display:none;">
+    <table id="messagesTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>phone</th>
+          <th>Message</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    const backendURL = "http://localhost:5000";
+
+    async function fetchOrders() {
+      try {
+        const res = await fetch(`${backendURL}/api/orders`);
+        const data = await res.json();
+        const tbody = document.querySelector("#ordersTable tbody");
+        tbody.innerHTML = "";
+
+        data.sort((a, b) => a.orderNumber - b.orderNumber).forEach(order => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${order.orderNumber}</td>
+            <td>${order.fullName}</td>
+            <td>${order.phoneNumber}</td>
+            <td>${order.deliveryAddress}</td>
+            <td>${order.deliverySlot}</td>
+            <td>${order.items.map(i => `${i.name} (${i.qty}<span>kg</span>)`).join(", ")}</td>
+            <td>₹${order.totalAmount}</td>
+            <td>${new Date(order.date).toLocaleString()}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      } catch (err) {
+        console.error("Error fetching orders:", err);
+      }
+    }
+    function toggleDelivered(orderId, checked) {
+      // Save checkbox states locally so it remembers even if you refresh
+      const deliveredOrders = JSON.parse(localStorage.getItem("deliveredOrders") || "{}");
+      deliveredOrders[orderId] = checked;
+      localStorage.setItem("deliveredOrders", JSON.stringify(deliveredOrders));
+    }
+
+    async function fetchMessages() {
+      try {
+        const res = await fetch(`${backendURL}/api/messages`);
+        const data = await res.json();
+        const tbody = document.querySelector("#messagesTable tbody");
+        tbody.innerHTML = "";
+
+        data.forEach(msg => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${msg.name}</td>
+            <td>${msg.phone}</td>
+            <td>${msg.message}</td>
+            <td>${new Date(msg.timestamp).toLocaleString()}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      } catch (err) {
+        console.error("Error fetching messages:", err);
+      }
+    }
+    
+    function showTab(tab) {
+      document.getElementById("ordersSection").style.display = tab === "orders" ? "block" : "none";
+      document.getElementById("messagesSection").style.display = tab === "messages" ? "block" : "none";
+
+      document.getElementById("ordersTab").classList.toggle("active", tab === "orders");
+      document.getElementById("messagesTab").classList.toggle("active", tab === "messages");
+
+      if (tab === "orders") fetchOrders();
+      else fetchMessages();
+    }
+    function logoutAdmin() {
+      sessionStorage.removeItem("isAdminAuthenticated");
+      alert("Logged out successfully.");
+      window.location.href = "admin.html";
+    }
+    function logincust() {
+      window.location.href = "index.html";
+    }
+    // Load orders by default
+    fetchOrders();
+  </script>
+</body>
+</html>
