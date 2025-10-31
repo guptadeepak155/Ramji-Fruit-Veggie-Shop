@@ -3,29 +3,29 @@ const backendURL = "http://localhost:5000";
 
 // ---------- Product Data (kept exactly as you provided) ----------
 const products = [
-  { id: 'apples', name: 'Apples', price: 100, unit: 'per kg', img: 'fruits/apples.jpg', desc: 'Fresh, crisp, and sweet apples.' },
-  { id: 'bananas', name: 'Bananas', price: 50, unit: 'per dozen', img: 'fruits/bananas.jpg', desc: 'Ripe and sweet bananas.' },
-  { id: 'oranges', name: 'Oranges', price: 50, unit: 'per kg', img: 'fruits/oranges.jpg', desc: 'Juicy and tangy oranges.' },
-  { id: 'grapes', name: 'Grapes', price: 80, unit: 'per kg', img: 'fruits/grapes.jpg', desc: 'Sweet seedless green grapes.' },
-  { id: 'mangoes', name: 'Mangoes', price: 100, unit: 'per kg', img: 'fruits/mango.jpg', desc: 'Delicious tropical mangoes.' },
-  { id: 'pineapple', name: 'Pineapple', price: 60, unit: 'per kg', img: 'fruits/pineapple.jpg', desc: 'Juicy tropical pineapple.' },
-  { id: 'strawberries', name: 'Strawberries', price: 200, unit: 'per kg', img: 'fruits/strawberries.jpg', desc: 'Fresh, sweet strawberries.' },
-  { id: 'watermelon', name: 'Watermelon', price: 40, unit: 'per kg', img: 'fruits/watermelon.jpg', desc: 'Refreshing and juicy watermelon.' },
-  { id: 'papaya', name: 'Papaya', price: 50, unit: 'per kg', img: 'fruits/papaya.jpg', desc: 'Sweet and soft papaya.' }
+  { id: 'apples', name: 'Apples', price: 100, unit: 'per kg', img: ' apples.jpg', desc: 'Fresh, crisp, and sweet apples.' },
+  { id: 'bananas', name: 'Bananas', price: 50, unit: 'per dozen', img: ' bananas.jpg', desc: 'Ripe and sweet bananas.' },
+  { id: 'oranges', name: 'Oranges', price: 50, unit: 'per kg', img: ' oranges.jpg', desc: 'Juicy and tangy oranges.' },
+  { id: 'grapes', name: 'Grapes', price: 80, unit: 'per kg', img: ' grapes.jpg', desc: 'Sweet seedless green grapes.' },
+  { id: 'mangoes', name: 'Mangoes', price: 100, unit: 'per kg', img: ' mango.jpg', desc: 'Delicious tropical mangoes.' },
+  { id: 'pineapple', name: 'Pineapple', price: 60, unit: 'per kg', img: ' pineapple.jpg', desc: 'Juicy tropical pineapple.' },
+  { id: 'strawberries', name: 'Strawberries', price: 200, unit: 'per kg', img: ' strawberries.jpg', desc: 'Fresh, sweet strawberries.' },
+  { id: 'watermelon', name: 'Watermelon', price: 40, unit: 'per kg', img: ' watermelon.jpg', desc: 'Refreshing and juicy watermelon.' },
+  { id: 'papaya', name: 'Papaya', price: 50, unit: 'per kg', img: ' papaya.jpg', desc: 'Sweet and soft papaya.' }
 ];
 const vegetables = [
-  { id: 'tomato', name: 'Tomatoes', price: 40, unit: 'per kg', img: 'fruits/tomato.jpg', desc: 'Fresh and juicy red tomatoes.' },
-  { id: 'potato', name: 'Potatoes', price: 30, unit: 'per kg', img: 'fruits/potato.png', desc: 'Farm-fresh and starchy potatoes.' },
-  { id: 'carrot', name: 'Carrots', price: 50, unit: 'per kg', img: 'fruits/carrrot.png', desc: 'Crunchy and sweet carrots.' },
-  { id: 'onion', name: 'Onions', price: 35, unit: 'per kg', img: 'fruits/onion.png', desc: 'Freshly harvested onions.' },
-  { id: 'spinach', name: 'Spinach', price: 25, unit: 'per bunch', img: 'fruits/spinach.png', desc: 'Green, fresh, and rich in nutrients.' },
-  { id: 'cauliflower', name: 'Cauliflower', price: 60, unit: 'per piece', img: 'fruits/cauliflower.png', desc: 'Crisp and fresh cauliflower.' }
+  { id: 'tomato', name: 'Tomatoes', price: 40, unit: 'per kg', img: ' tomato.jpg', desc: 'Fresh and juicy red tomatoes.' },
+  { id: 'potato', name: 'Potatoes', price: 30, unit: 'per kg', img: ' potato.png', desc: 'Farm-fresh and starchy potatoes.' },
+  { id: 'carrot', name: 'Carrots', price: 50, unit: 'per kg', img: ' carrrot.png', desc: 'Crunchy and sweet carrots.' },
+  { id: 'onion', name: 'Onions', price: 35, unit: 'per kg', img: ' onion.png', desc: 'Freshly harvested onions.' },
+  { id: 'spinach', name: 'Spinach', price: 25, unit: 'per bunch', img: ' spinach.png', desc: 'Green, fresh, and rich in nutrients.' },
+  { id: 'cauliflower', name: 'Cauliflower', price: 60, unit: 'per piece', img: ' cauliflower.png', desc: 'Crisp and fresh cauliflower.' }
 ];
 const juices = [
-  { id: 'mango-juice', name: 'Mango Juice', price: 20, unit: 'per glass', img: 'fruits/mango.jpg', desc: 'Fresh mango juice.' },
-  { id: 'orange-juice', name: 'Orange Juice', price: 15, unit: 'per glass', img: 'fruits/oranges.jpg', desc: 'Fresh orange juice.' },
-  { id: 'pineapple-juice', name: 'Pineapple Juice', price: 25, unit: 'per glass', img: 'fruits/pineapple.jpg', desc: 'Fresh pineapple juice.' },
-  { id: 'watermelon-juice', name: 'Watermelon Juice', price: 20, unit: 'per glass', img: 'fruits/watermelon.jpg', desc: 'Refreshing watermelon juice.' }
+  { id: 'mango-juice', name: 'Mango Juice', price: 20, unit: 'per glass', img: ' mango.jpg', desc: 'Fresh mango juice.' },
+  { id: 'orange-juice', name: 'Orange Juice', price: 15, unit: 'per glass', img: ' oranges.jpg', desc: 'Fresh orange juice.' },
+  { id: 'pineapple-juice', name: 'Pineapple Juice', price: 25, unit: 'per glass', img: ' pineapple.jpg', desc: 'Fresh pineapple juice.' },
+  { id: 'watermelon-juice', name: 'Watermelon Juice', price: 20, unit: 'per glass', img: ' watermelon.jpg', desc: 'Refreshing watermelon juice.' }
 ];
 
 // ---------- State ----------
