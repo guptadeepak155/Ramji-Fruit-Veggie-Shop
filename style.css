@@ -42,8 +42,7 @@ nav a:hover { color: #ffcb5c; }
 }
 /* --- Hero --- */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)),
-    url("Ramji-Fruit-Veggie-Shop/image/powell-rasull-7YFfGE26kbs-unsplash.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)),url("image/powell-rasull-7YFfGE26kbs-unsplash.jpg") center/cover no-repeat;
   color: #fff;
   padding: 110px 260px;
   text-align: center;
@@ -494,6 +493,7 @@ footer {
 
 /* --- Responsive --- */
 @media (max-width: 880px) { .search-bar { display: none; } .hero h2 { font-size: 1.9rem; } }
+
 
 
 
